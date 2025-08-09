@@ -504,11 +504,18 @@ module.exports = {
     link: {
       name: "link",
       address: "0x90a386d59b9a6a4795a011e8f032fc21ed6fefb6",
+      decimals: 18,
       priceFeed: "0xF111b70231E89D69eBC9f6C9208e9890383Ef432",
       priceDecimals: 18,
       fastPricePrecision: 1000,
       maxCumulativeDeltaDiff: 0.1 * 10 * 1000 * 1000, // 10%
-      isStrictStable: false
+      isStrictStable: false,
+      tokenWeight: 1000,
+      minProfitBps: 0,
+      maxUsdgAmount: 1000 * 1000,
+      bufferAmount: 50 * 1000,
+      isStable: false,
+      isShortable: true
     },
     usdc: {
       name: "usdc",
@@ -516,16 +523,29 @@ module.exports = {
       decimals: 6,
       priceFeed: "0xb632a7e7e02d76c0Ce99d9C62c7a2d1B5F92B6B5",
       priceDecimals: 8,
-      isStrictStable: true
+      isStrictStable: true,
+      tokenWeight: 46_000,
+      minProfitBps: 0,
+      maxUsdgAmount: 20 * 1000 * 1000,
+      bufferAmount: 6.5 * 1000 * 1000,
+      isStable: true,
+      isShortable: false
     },
     nativeToken: {
       name: "whbar",
       address: "0x0000000000000000000000000000000000003ad2",
+      decimals: 18,
       priceFeed: "0x59bC155EB6c6C415fE43255aF66EcF0523c92B4a",
       fastPricePrecision: 1000,
       maxCumulativeDeltaDiff: 0.1 * 10 * 1000 * 1000, // 10%
       priceDecimals: 18,
-      isStrictStable: false
+      isStrictStable: false,
+      tokenWeight: 1000,
+      minProfitBps: 0,
+      maxUsdgAmount: 1000 * 1000,
+      bufferAmount: 50 * 1000,
+      isStable: false,
+      isShortable: true
     }
   }
 };

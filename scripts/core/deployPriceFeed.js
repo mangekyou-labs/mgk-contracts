@@ -124,10 +124,10 @@ async function getHederaValues() {
 
   // const priceFeedTimelock = { address: "0xCa8b5F2fF7B8d452bE8972B44Dc026Be96b97228" }
 
-  const updater1 = { address: "0xeD37FD0d6F0f69236E7472B36796e133D20EcC32" }
-  const updater2 = { address: "0xeD37FD0d6F0f69236E7472B36796e133D20EcC32" }
-  const keeper1 = { address: "0xeD37FD0d6F0f69236E7472B36796e133D20EcC32" }
-  const keeper2 = { address: "0xeD37FD0d6F0f69236E7472B36796e133D20EcC32" }
+  const updater1 = { address: "0x7A23f6457A23A7A9D8a0dDab0b85d94123E53389" }
+  const updater2 = { address: "0x7A23f6457A23A7A9D8a0dDab0b85d94123E53389" }
+  const keeper1 = { address: "0x7A23f6457A23A7A9D8a0dDab0b85d94123E53389" }
+  const keeper2 = { address: "0x7A23f6457A23A7A9D8a0dDab0b85d94123E53389" }
   const updaters = [updater1.address, updater2.address, keeper1.address, keeper2.address]
 
   const tokenManager = { address: "0xAf3C069A40fA3D438FAdcC58737F088B41b1FC0B" }
@@ -167,8 +167,8 @@ async function getValues() {
 }
 
 async function main() {
-  const deployer = { address: "0xeD37FD0d6F0f69236E7472B36796e133D20EcC32" }
-  const buffer = 24 * 60 * 60
+  const deployer = { address: "0x7A23f6457A23A7A9D8a0dDab0b85d94123E53389" }
+  const buffer = 60 * 30 // 30 minutes
 
   const {
     pyth,
@@ -206,7 +206,7 @@ async function main() {
   })
 
   // const vaultPriceFeed = await deployContract("VaultPriceFeed", [])
-  const vaultPriceFeed = await contractAt("VaultPriceFeed", "0x50938434Ea67f71b2B34B02F7E73e9a946B3DE70")
+  const vaultPriceFeed = await contractAt("VaultPriceFeed", "0x5c882561E531064DB9845d4021F94f49E13bB578")
 
   await sendTxn(vaultPriceFeed.setMaxStrictPriceDeviation(expandDecimals(1, 28)), "vaultPriceFeed.setMaxStrictPriceDeviation") // 0.01 USD
   await sendTxn(vaultPriceFeed.setPriceSampleSpace(1), "vaultPriceFeed.setPriceSampleSpace")
@@ -265,8 +265,8 @@ async function main() {
 
   await sendTxn(vaultPriceFeed.setSecondaryPriceFeed(secondaryPriceFeed.address), "vaultPriceFeed.setSecondaryPriceFeed")
 
-  await sendTxn(vaultPriceFeed.setGov(priceFeedTimelock.address), "vaultPriceFeed.setGov")
-  await sendTxn(secondaryPriceFeed.setGov(priceFeedTimelock.address), "secondaryPriceFeed.setGov")
+  // await sendTxn(vaultPriceFeed.setGov(priceFeedTimelock.address), "vaultPriceFeed.setGov")
+  // await sendTxn(secondaryPriceFeed.setGov(priceFeedTimelock.address), "secondaryPriceFeed.setGov")
   await sendTxn(secondaryPriceFeed.setTokenManager(tokenManager.address), "secondaryPriceFeed.setTokenManager")
 
   await signExternally(await fastPriceEvents.populateTransaction.setIsPriceFeed(secondaryPriceFeed.address, true));

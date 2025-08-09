@@ -47,7 +47,7 @@ async function getAvaxValues(signer) {
   const provider = new ethers.providers.JsonRpcProvider(AVAX_URL)
   const capKeeperWallet = new ethers.Wallet(AVAX_CAP_KEEPER_KEY).connect(provider)
 
-  const vault = await contractAt("Vault", "0x9ab2De34A33fB459b538c43f251eB825645e8595")
+  const vault = await contractAt("Vault", "0x33Ce5A8D250861e35ae30361bA5634540EBCaEB2")
   const timelock = await contractAt("Timelock", await vault.gov(), signer)
   const router = await contractAt("Router", await vault.router(), signer)
   const weth = await contractAt("WETH", tokens.nativeToken.address)
