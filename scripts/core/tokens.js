@@ -506,7 +506,7 @@ module.exports = {
       address: "0x90a386d59b9a6a4795a011e8f032fc21ed6fefb6",
       decimals: 18,
       priceFeed: "0xF111b70231E89D69eBC9f6C9208e9890383Ef432",
-      priceDecimals: 18,
+      priceDecimals: 8,
       fastPricePrecision: 1000,
       maxCumulativeDeltaDiff: 0.1 * 10 * 1000 * 1000, // 10%
       isStrictStable: false,
@@ -538,7 +538,7 @@ module.exports = {
       priceFeed: "0x59bC155EB6c6C415fE43255aF66EcF0523c92B4a",
       fastPricePrecision: 1000,
       maxCumulativeDeltaDiff: 0.1 * 10 * 1000 * 1000, // 10%
-      priceDecimals: 18,
+      priceDecimals: 8,
       isStrictStable: false,
       tokenWeight: 1000,
       minProfitBps: 0,
