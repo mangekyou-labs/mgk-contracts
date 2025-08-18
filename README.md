@@ -77,3 +77,15 @@ npx hardhat run scripts/core/testPerpetualWithLeverage.js --network hederaTestne
 npx hardhat run scripts/core/checkVaultPermissions.js --network hederaTestnet
 ```
 **Purpose**: Verify manager mode and permission settings
+
+#### 9. Test Liquidation System
+```bash
+npx hardhat run scripts/core/testLiquidation.js --network hederaTestnet
+```
+**Purpose**: Validate liquidation mechanics and position validation
+
+#### 10. Test Liquidation Triggers
+```bash
+npx hardhat run scripts/core/testLiquidationTrigger.js --network hederaTestnet
+```
+**Purpose**: Advanced liquidation testing with high leverage scenarios
